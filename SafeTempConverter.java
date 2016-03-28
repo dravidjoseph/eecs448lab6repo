@@ -4,6 +4,7 @@
 * @brief Contains code to run Dice program
 */
 
+//Predefined Libraries
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Component;
@@ -11,11 +12,12 @@ import java.awt.GridLayout;
 
 public class SafeTempConverter{
 
-	//declare instance variables
+	//declare GUI components
 	private JPanel content;
 	
 	private JPanel buttonPanel;
 	
+	//Buttons to convert temps
 	private JButton fcButton;
 	private JButton fkButton;
 	private JButton cfButton;
@@ -23,17 +25,25 @@ public class SafeTempConverter{
 	private JButton kfButton;
 	private JButton kcButton;
 	
+	//input temperature from user
 	private JTextField text;
 	
+	//label and result
 	private JLabel label;
 	private JLabel result;
 	
+	/**
+	 * @pre None
+	 * @post initialize GUI components and any listeners.  Add to panel
+	 * @return None
+	 */
 	public SafeTempConverter(){
 		
 		//Load panels
 		content = new JPanel(new GridLayout(0,1));
 		buttonPanel = new JPanel(new GridLayout(2,3));
 		
+		//Buttons
 		fcButton = new JButton("F to C");
 		fkButton = new JButton("F to K");
 		cfButton = new JButton("C to F");
@@ -41,8 +51,10 @@ public class SafeTempConverter{
 		kfButton = new JButton("K to F");
 		kcButton = new JButton("K to C");
 		
+		//text field
 		text = new JTextField(3);
 		
+		//Labels
 		label = new JLabel("Enter a temperature to convert");
 		result = new JLabel("No temperature to convert.");
 
@@ -70,10 +82,21 @@ public class SafeTempConverter{
 		content.add(result);
 	}
 	
+	/**
+	 * @pre None
+	 * @post Panel containing components
+	 * @return Component
+	 */
 	public Component getContent(){
 		return content;
 	}
 
+	
+	/**
+	 * @pre None
+	 * @post listens for button presses.  When button is pressed, Convert temp from F to C.
+	 * @return ActionListener
+	 */
 	private ActionListener fcButtonListener(){
 		ActionListener listener = new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -97,6 +120,11 @@ public class SafeTempConverter{
 		return listener;
 		
 	}
+	/**
+	 * @pre None
+	 * @post listens for button presses.  When button is pressed, .
+	 * @return ActionListener
+	 */
 	private ActionListener fkButtonListener(){
 		ActionListener listener = new ActionListener(){
 			public void actionPerformed(ActionEvent e){
