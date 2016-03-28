@@ -32,10 +32,14 @@ public class DiceRoll{
 		content.add(text);
 		content.add(roll);
 		content.add(result);
-		
-		
-		
 	}
+	
+	public Component getContent(){
+		return content;
+	}
+	
+
+	
 
 	
 	
