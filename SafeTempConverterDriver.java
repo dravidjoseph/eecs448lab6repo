@@ -1,7 +1,7 @@
 /**
 * @title SafeTempConverterDriver.java
 * @author Dravid Joseph
-* @brief Contains code to run Dice program
+* @brief Contains code to run SafeTempConverter program
 */
 
 import javax.swing.JFrame;
