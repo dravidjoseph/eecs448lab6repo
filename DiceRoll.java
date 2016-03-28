@@ -38,7 +38,30 @@ public class DiceRoll{
 		return content;
 	}
 	
-
+	private Actionlistener buttonListener(){
+		
+		ActionListener listener = new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				String input = text.getText();
+				
+				try{
+					int sides = Integer.parseInt(input);
+				}
+				
+				Random myRand = new Random();
+				int randomInt = 1 + myRand.nextInt(sides);
+				String rolled = "Your number is: "+ randomInt;
+				result.setText(rolled);
+				catch(NumberFormatException e){
+					result.setText("Enter a valid integer");
+				}
+				
+				
+			}
+		};
+		
+		return listener;
+	}
 	
 
 	
