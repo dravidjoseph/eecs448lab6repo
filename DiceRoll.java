@@ -9,6 +9,8 @@
 import javax.swing.*;
 import java.awt.Component;
 import java.awt.event.*;
+import java.awt.GridLayout;
+import java.util.Random;
 
 
 public class DiceRoll{
@@ -21,12 +23,13 @@ public class DiceRoll{
 	
 	
 	public DiceRoll(){
-		content = new JPanel();
+		content = new JPanel(new GridLayout(0,1));
 		roll = new JButton("Roll");
+		text = new JTextField(3);
 		label = new JLabel("How many faces does your die have?");
-		result = new JLabel("You rolled a: ");
+		result = new JLabel("Your die doesn't exist yet");
 		
-		button.addActionListener(buttonListener());
+		roll.addActionListener(buttonListener());
 		
 		content.add(label);
 		content.add(text);
@@ -38,7 +41,7 @@ public class DiceRoll{
 		return content;
 	}
 	
-	private Actionlistener buttonListener(){
+	private ActionListener buttonListener(){
 		
 		ActionListener listener = new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -46,13 +49,12 @@ public class DiceRoll{
 				
 				try{
 					int sides = Integer.parseInt(input);
+					Random myRand = new Random();
+					int randomInt = 1 + myRand.nextInt(sides);
+					String rolled = "Your number is: "+ randomInt;
+					result.setText(rolled);
 				}
-				
-				Random myRand = new Random();
-				int randomInt = 1 + myRand.nextInt(sides);
-				String rolled = "Your number is: "+ randomInt;
-				result.setText(rolled);
-				catch(NumberFormatException e){
+				catch(NumberFormatException number){
 					result.setText("Enter a valid integer");
 				}
 				

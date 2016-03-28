@@ -5,14 +5,13 @@
 *
 */
 
-import javax.swing.*;
-import java.awt.Component;
-import java.awt.event.*;
+import javax.swing.JFrame;
 
 public class DiceRollDriver{
 	
 	private static void createAndDisplayGUI(){
 		JFrame frame = new JFrame("Dice");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		DiceRoll dice = new DiceRoll();
 		
 		frame.getContentPane().add(dice.getContent());
